@@ -1,7 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
-    int numerosecreto = 42;
+    srand(time(NULL));
+
+    int numerosecreto = rand() % 100;
     int chute;
     int tentativas = 1;
     double pontos = 100;
@@ -31,8 +35,8 @@ int main() {
         }
         
         tentativas++;
-        double pontosPerdidos = (chute - numerosecreto) / 2.0;
-        pontos = pontos - pontosPerdidos;
+        double pontosPerdidos = abs(chute - numerosecreto) / 2.0;
+        pontos -= pontosPerdidos;
     }
 
     printf("Fim de jogo!\n");
